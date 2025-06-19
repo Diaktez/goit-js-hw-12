@@ -26,11 +26,7 @@ async function handleSubmit(hole) {
   const query = input.value.trim();
 
   if (!query) {
-    iziToast.error({
-      title: 'Error',
-      message: 'Please enter a search query.',
-      position: 'topRight',
-    });
+    notifyError('Please enter a search query.');
     return;
   }
 
@@ -45,11 +41,7 @@ async function handleSubmit(hole) {
     const data = await getImagesByQuery(currentQuery, currentPage);
 
     if (data.hits.length === 0) {
-      iziToast.warning({
-        title: 'No Results',
-        message: 'Sorry, no images match your query.',
-        position: 'center',
-      });
+      notifyWarning('Sorry, no images match your query.');
       return;
     }
 
@@ -58,27 +50,19 @@ async function handleSubmit(hole) {
     // console.log(data);
     if (currentPage * 15 >= data.totalHits) {
       hideLoadMoreButton();
-
-      iziToast.info({
-        title: 'End',
-        message: "We're sorry, but you've reached the end of search results.",
-        position: 'topRight',
-      });
+      notifyInfo("We're sorry, but you've reached the end of search results.");
     } else {
       showLoadMoreButton();
     }
   } catch (error) {
-    iziToast.error({
-      title: 'Error',
-      message: 'Something went wrong. Try again later.',
-      position: 'topRight',
-    });
+    notifyError('Something went wrong. Try again later.');
   } finally {
     hideLoader();
   }
 }
 
 loadMoreBtn.addEventListener('click', handleLoadMore);
+
 async function handleLoadMore() {
   currentPage += 1;
   showLoader();
@@ -91,18 +75,10 @@ async function handleLoadMore() {
 
     if (currentPage * 15 >= data.totalHits) {
       hideLoadMoreButton();
-      iziToast.info({
-        title: 'End ',
-        message: "We're sorry, but you've reached the end of search results.",
-        position: 'topRight',
-      });
+      notifyInfo("We're sorry, but you've reached the end of search results.");
     }
   } catch (error) {
-    iziToast.error({
-      title: 'Error',
-      message: 'Failed to load more images.',
-      position: 'topRight',
-    });
+    notifyError('Something went wrong. Try again later.');
   } finally {
     hideLoader();
   }
@@ -119,3 +95,12 @@ function smoothScrollAfterLoad() {
     behavior: 'smooth',
   });
 }
+
+const notifyError = message =>
+  iziToast.error({ title: 'Error', message, position: 'topRight' });
+
+const notifyWarning = message =>
+  iziToast.warning({ title: 'Warning', message, position: 'center' });
+
+const notifyInfo = message =>
+  iziToast.info({ title: 'Info', message, position: 'topRight' });

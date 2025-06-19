@@ -105,6 +105,7 @@ body {
 .tocenter {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 
 }
 
@@ -126,6 +127,12 @@ body {
 @media (max-width: 767px) {
   .gallery li {
     width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 479px) {
+  .gallery li {
+    width: 100%;
   }
 }
 
