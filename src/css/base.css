@@ -81,7 +81,8 @@ body {
   border-radius: 4px;
 }
 
-.form button {
+.form button,
+.button-more {
   font-family: "Montserrat", sans-serif;
   padding: 10px 20px;
   background-color: #4f7df9;
@@ -96,8 +97,15 @@ body {
   color: #fff;
 }
 
-.form button:hover {
+.form button:hover,
+.button-more:hover {
   background-color: #3d63d6;
+}
+
+.tocenter {
+  display: flex;
+  justify-content: center;
+
 }
 
 
