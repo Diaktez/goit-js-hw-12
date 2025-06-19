@@ -124,13 +124,13 @@ body {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 881px) {
   .gallery li {
     width: calc((100% - 24px) / 2);
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 652px) {
   .gallery li {
     width: 100%;
   }
