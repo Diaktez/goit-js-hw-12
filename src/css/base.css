@@ -134,6 +134,27 @@ body {
   .gallery li {
     width: 100%;
   }
+
+  .sl-overlay {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .sl-wrapper {
+    background-color: #000 !important;
+  }
+
+  .sl-image {
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    object-fit: contain;
+  }
+
+  .sl-arrow,
+  .sl-prev,
+  .sl-next {
+    color: #fff !important;
+    fill: #fff !important;
+  }
 }
 
 .gallery-item:hover {

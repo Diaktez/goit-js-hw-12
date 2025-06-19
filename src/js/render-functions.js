@@ -6,7 +6,7 @@ const loader = document.querySelector('.loader');
 const buttonMore = document.querySelector('.button-more');
 
 export const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
+  // captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
   overlayOpacity: 0.3,
